@@ -1,0 +1,1 @@
+{"version":3,"file":"productionReportSummary.d.ts","sourceRoot":"","sources":["../../../src/generated/types/productionReportSummary.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AAEH,MAAM,MAAM,uBAAuB,GAAG;IACpC,eAAe,EAAE,MAAM,CAAC;IACxB,gBAAgB,EAAE,MAAM,CAAC;IACzB,WAAW,EAAE,MAAM,CAAC;IACpB,aAAa,EAAE,MAAM,CAAC;IACtB,MAAM,EAAE,MAAM,CAAC;IACf,UAAU,EAAE,MAAM,CAAC;CACpB,CAAC"}

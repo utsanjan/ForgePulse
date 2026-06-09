@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Production Management System"
+version = "1.0.0"
+id = "artifacts/pms"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23900
+
+[services.development]
+run = "pnpm --filter @workspace/pms run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pms", "run", "build" ]
+publicDir = "artifacts/pms/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23900"
+BASE_PATH = "/"
