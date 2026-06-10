@@ -1,45 +1,172 @@
 # ForgePulse
 
-Modern manufacturing execution system — real-time production insights, inventory optimization, and workforce coordination for smart factories.
+> Modern Manufacturing Execution System (MES) — real-time production insights, inventory optimization, and workforce coordination for smart factories.
 
-## Run & Operate
+ForgePulse is a modern Manufacturing Execution System designed to help manufacturers streamline operations through real-time production visibility, intelligent inventory management, and efficient workforce coordination. Built using a scalable TypeScript-based architecture, ForgePulse focuses on reliability, maintainability, and developer productivity.
 
-- `pnpm --filter @workspace/forgepulse-api run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/forgepulse-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+---
 
-## Stack
+## ✨ Features
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- 📊 **Real-time Production Monitoring** – Track manufacturing activities and operational performance as they happen.
+- 📦 **Inventory Optimization** – Improve stock visibility and reduce shortages or excess inventory.
+- 👥 **Workforce Coordination** – Support efficient task allocation and workforce management across production lines.
+- 🔒 **End-to-End Type Safety** – Leverage TypeScript, Zod, and generated API contracts for safer development.
+- ⚡ **Modern Monorepo Architecture** – Built with pnpm workspaces for scalability and maintainability.
 
-## Where things live
+---
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+## 🛠️ Tech Stack
 
-## Architecture decisions
+| Category | Technology |
+|-----------|-------------|
+| Package Management | pnpm Workspaces |
+| Runtime | Node.js 24 |
+| Language | TypeScript 5.9 |
+| API Framework | Express 5 |
+| Database | PostgreSQL |
+| ORM | Drizzle ORM |
+| Validation | Zod (`zod/v4`), `drizzle-zod` |
+| API Code Generation | Orval |
+| Build Tool | esbuild |
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+---
 
-## Product
+## 🚀 Getting Started
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+### Prerequisites
 
-## User preferences
+- Node.js 24 or later
+- pnpm
+- PostgreSQL
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+### Environment Variables
 
-## Gotchas
+Create a `.env` file and configure the following variable:
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+```env
+DATABASE_URL=postgresql://username:password@host:port/database
+```
 
-## Pointers
+---
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+## 📦 Installation
+
+```bash
+git clone <repository-url>
+cd forgepulse
+pnpm install
+```
+
+---
+
+## 🧑‍💻 Development
+
+Start the API server:
+
+```bash
+pnpm --filter @workspace/forgepulse-api run dev
+```
+
+The API server runs on:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## 📋 Available Commands
+
+### Run the API Server
+
+```bash
+pnpm --filter @workspace/forgepulse-api run dev
+```
+
+### Type Check All Packages
+
+```bash
+pnpm run typecheck
+```
+
+### Build the Entire Workspace
+
+```bash
+pnpm run build
+```
+
+### Regenerate API Hooks and Zod Schemas
+
+Regenerate API clients and validation schemas from the OpenAPI specification:
+
+```bash
+pnpm --filter @workspace/forgepulse-spec run codegen
+```
+
+### Push Database Schema Changes (Development Only)
+
+```bash
+pnpm --filter @workspace/db run push
+```
+
+> **Note:** Avoid using database push commands directly in production environments.
+
+---
+
+## 🏗️ Project Structure
+
+```text
+forgepulse/
+├── apps/                # Application packages
+├── packages/            # Shared libraries and utilities
+├── db/                  # Database schema and migrations
+├── forgepulse-spec/     # OpenAPI specifications and code generation
+└── ...
+```
+
+Update this section as the repository evolves to accurately reflect the workspace structure.
+
+---
+
+## 🧠 Architecture Principles
+
+- **API-First Development** using OpenAPI specifications as the source of truth.
+- **End-to-End Type Safety** powered by TypeScript, Zod, and generated clients.
+- **Modular Monorepo Design** that promotes code reuse and clear package boundaries.
+- **Schema-Driven Database Development** using Drizzle ORM.
+- **Automated Code Generation** to minimize manual maintenance and improve consistency.
+
+---
+
+## 🎯 Product Vision
+
+ForgePulse aims to empower manufacturers with:
+
+- Greater visibility into production performance.
+- Better coordination across factory teams.
+- Smarter inventory decision-making.
+- Scalable infrastructure that adapts to evolving manufacturing requirements.
+
+---
+
+## ⚠️ Gotchas
+
+- Ensure `DATABASE_URL` is configured before running database-related commands.
+- Regenerate API clients and schemas after updating the OpenAPI specification.
+- Run type checks before creating production builds.
+- Use database push commands only in development environments unless a migration strategy is in place.
+
+---
+
+## 📚 Additional Resources
+
+- Review the workspace configuration for package relationships and scripts.
+- Refer to the OpenAPI specification for API contracts and generated artifacts.
+- Consult database schema definitions as the source of truth for persistence models.
+
+---
+
+## 📄 License
+
+This project is licensed under the terms specified in the repository's `LICENSE` file.
